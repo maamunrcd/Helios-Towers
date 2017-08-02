@@ -22,8 +22,8 @@ body {
 
 .rightside {
     position: fixed;
-    right:0; /*-635px*/
-    top:-38px;
+    right: 0; /*-635px*/
+    top: -38px;
     transition: all .5s;
     width: 33%;
 }
@@ -43,14 +43,14 @@ ul {
 
 ul.accordion {
     width: 100%;
-    border:2px solid #000000;
+    border: 2px solid #000000;
 }
 
 .inner {
     padding: 1em .75em .5em 1em;
     overflow: hidden;
     display: none;
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
 .accordion .inner .symble p {
@@ -59,14 +59,15 @@ ul.accordion {
     font-weight: bold;
 }
 
-ul.accordion li{
-    margin-top:-2px;
+ul.accordion li {
+    margin-top: -2px;
 }
+
 li a.toggle {
     width: 100%;
     display: block;
     background: #fffeff;
-    height:33px;
+    height: 33px;
     color: #3a383a;
     font-size: 12px;
     padding: 5px 8px;
@@ -83,18 +84,19 @@ li > a:hover {
     background: #95bbf4;
 }
 
-.rightside ul.tab-list{
-    margin:0;
-    padding:0;
-    left:-250px;
+.rightside ul.tab-list {
+    margin: 0;
+    padding: 0;
+    left: -250px;
     position: relative;
     top: 20px;
     -ms-transform: rotate(-90deg); /* IE 9 */
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
 }
-.rightside ul.tab-list li{
-   display: inline-block;
+
+.rightside ul.tab-list li {
+    display: inline-block;
 }
 
 ul li a.toggle_btn {
@@ -110,9 +112,10 @@ ul li a.toggle_btn {
 ul li a.toggle_btn.show {
     background: #95bbf4;
 }
-.btn{
+
+.btn {
     padding: 5px 7px;
-    border:1px solid #000000;
+    border: 1px solid #000000;
     background: #fffeff;
     display: block;
     width: 80%;
@@ -120,22 +123,26 @@ ul li a.toggle_btn.show {
     margin: auto;
     height: 32px;
 }
-.shadow{
+
+.shadow {
     box-shadow: 2px 2px 2px #000000;
     -webkit-box-shadow: 2px 2px 2px #000000;
     -moz-box-shadow: 2px 2px 2px #000000;
 }
-.input-btn{
+
+.input-btn {
     position: relative;
 }
-.new-project-section .form-section .form-layout{
+
+.new-project-section .form-section .form-layout {
     padding-bottom: 120px;
 }
-.input-btn:after{
+
+.input-btn:after {
     content: "Choose file from computer";
     position: absolute;
     top: 0;
-    font-size:12px;
+    font-size: 12px;
     background: white;
     width: 100%;
     left: 0;
@@ -144,6 +151,7 @@ ul li a.toggle_btn.show {
     box-sizing: border-box;
     height: 100%;
 }
+
 .form-section {
     width: 100%;
     display: flex;
@@ -155,10 +163,12 @@ ul li a.toggle_btn.show {
     border: 1px solid #000000;
     margin: 0 2px;
 }
-.form-section .form-layout .section-heading h6{
-    font-size:12px;
-    margin:0 0 15px 0;
+
+.form-section .form-layout .section-heading h6 {
+    font-size: 12px;
+    margin: 0 0 15px 0;
 }
+
 .text-capitalize {
     text-transform: capitalize;
 }
@@ -181,9 +191,11 @@ ul li a.toggle_btn.show {
 .text-left {
     text-align: left;
 }
+
 .text-center {
     text-align: center;
 }
+
 .text-right {
     text-align: center;
 }
@@ -195,38 +207,41 @@ ul li a.toggle_btn.show {
     background: transparent;
     border: 1px solid #181618;
 }
-.primary_btn{
-    border:1px solid #000000;
+
+.primary_btn {
+    border: 1px solid #000000;
     background: #fffeff;
     padding: 0px 10px;
-    font-size:12px;
+    font-size: 12px;
     display: inline-block;
 }
 
-.section_heading{
+.section_heading {
     margin-bottom: 25px;
 }
 
-.btn_group input{
+.btn_group input {
     margin: 25px auto;
-    display:table;
-    border:1px solid #000000;
+    display: table;
+    border: 1px solid #000000;
     background: #fffeff;
     padding: 15px 60px;
-    font-size:12px;
+    font-size: 12px;
 }
-.action_btn_group{
-    display:table;
-    width:100%;
-    border-spacing:10px;
-    margin:20px auto;
+
+.action_btn_group {
+    display: table;
+    width: 100%;
+    border-spacing: 10px;
+    margin: 20px auto;
 }
-.action_btn_group .action_btn{
-    display:table-cell;
+
+.action_btn_group .action_btn {
+    display: table-cell;
     padding: 5px;
     font-size: 12px;
-    border:1px solid #000000;
-    margin:0 5px;
+    border: 1px solid #000000;
+    margin: 0 5px;
     font-weight: bold;
 }
 
@@ -242,20 +257,43 @@ ul li a.toggle_btn.show {
     float: right;
 }
 
-.action-btn{
+.action-btn {
     margin: 60px 0;
     text-align: center;
     font-size: 12px;
     display: block;
 }
 
-
-
-.table-detials{
+.table-detials {
     height: 400px;
     overflow-x: hidden;
     overflow-y: scroll;
     border: 2px solid #000000;
+}
+
+.view_analysis_point .table-detials, .view_analysis_point .table-detials table {
+    border: none;
+}
+
+.view_analysis_point .table-detials table tbody tr td:first-child, .view_analysis_point .table-detials table thead tr th:first-child {
+    border: none;
+    background: none;
+}
+
+.table-detials table thead tr th:first-child, .table-detials table tbody tr td:first-child {
+    background: #fffeff !important;
+}
+
+.view_analysis_point .table-detials table tbody tr td, .view_analysis_point .table-detials table thead tr th {
+    border: 2px solid #000000;
+}
+
+.view_analysis_point .table-detials table tbody tr td.icons {
+    padding: 5px;
+}
+
+.view_analysis_point .table-detials table tbody tr.active{
+   background: #95bbf4;
 }
 
 .table-detials table {
@@ -267,34 +305,40 @@ ul li a.toggle_btn.show {
 .table-detials th, td {
     text-align: left;
     padding: 5px;
-    font-size:12px;
+    font-size: 12px;
     border-right: 2px solid #000000;
 }
-.table-detials thead{
+
+.table-detials thead {
     background-color: #cccacc;
 }
-.table-detials tr th{
+
+.table-detials tr th {
     text-transform: capitalize;
     font-weight: bold;
     position: relative;
     border-right: 2px solid #000000;
 }
 
-.table-detials tr th span.order_item{
+.table-detials tr th span.order_item {
     position: relative;
-    display:block;
+    display: block;
 }
-.table-detials tr th span.order_item:after{
+
+.table-detials tr th span.order_item:after {
     content: "";
     position: absolute;
-    right:-2px;
-    top:-10px;
+    right: -2px;
+    top: -10px;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid #0a080a;
 }
 
-.table-detials tr:nth-child(even){background-color: #f2f2f2}
-.table-detials tr:hover{
+.table-detials tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.table-detials tr:hover {
     background: #95bbf4;
 }
