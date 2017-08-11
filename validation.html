@@ -1,10 +1,434 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"/>
+    <title>Helios-Towers</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://js.arcgis.com/4.4/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "dojo/domReady!"
+        ], function (Map, MapView) {
+            var map = new Map({
+                basemap: "streets"
+            });
+            var view = new MapView({
+                container: "viewDiv",  // Reference to the scene div created in step 5
+                map: map,  // Reference to the map object created before the scene
+                zoom: 4,  // Sets zoom level based on level of detail (LOD)
+                center: [15, 65]  // Sets center point of view using longitude,latitude
+            });
+        });
+    </script>
 </head>
 <body>
-$END$
+<div id="viewDiv"></div>
+<div id="validation">
+    <div class="menu-section">
+        <ul>
+            <li>
+                <select>
+                    <option class="one" value="">ChooseProject</option>
+                    <option class="one" value="ChooseProject1">ChooseProject1</option>
+                    <option class="one" value="ChooseProject2">ChooseProject2</option>
+                    <option class="one" value="ChooseProject3">ChooseProject3</option>
+                </select>
+            </li>
+            <li><a href="#"># of BTS in Project</a></li>
+            <li><a href="#">Customer</a></li>
+
+        </ul>
+    </div>
+    <div class="table-section">
+        <table>
+            <thead>
+            <tr>
+                <th>HTA ID</th>
+                <th>Legacy ID</th>
+                <th>Score MNO1</th>
+                <th>Distance MNO1</th>
+                <th>Score MNO2</th>
+                <th>Distance MNO2</th>
+                <th>Score MNO3</th>
+                <th>Distance MNO3</th>
+                <th>Population Score</th>
+                <th>Decision 1</th>
+                <th>Decision 2</th>
+                <th>Validation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-green">Comment 1</td>
+                <td class="light-green">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr class="approved">
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td>Comment 1</td>
+                <td>Comment 2</td>
+                <td><input type="checkbox" name="myTextEditBox" value="checked"></td>
+
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-curd">Comment 1</td>
+                <td class="light-curd">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-pink">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-curd">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-green">Comment 1</td>
+                <td class="light-pink">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+
+            <tr class="approved">
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td>Comment 1</td>
+                <td>Comment 2</td>
+                <td><input type="checkbox" name="myTextEditBox" value="checked"></td>
+            </tr>
+
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-pink">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-curd">Comment 1</td>
+                <td class="light-green">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-green">Comment 1</td>
+                <td class="light-curd">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-green">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <th>HTA ID</th>
+                <th>Legacy ID</th>
+                <th>Score MNO1</th>
+                <th>Distance MNO1</th>
+                <th>Score MNO2</th>
+                <th>Distance MNO2</th>
+                <th>Score MNO3</th>
+                <th>Distance MNO3</th>
+                <th>Population Score</th>
+                <th>Decision 1</th>
+                <th>Decision 2</th>
+                <th>Validation</th>
+            </tr>
+            <tr class="approved">
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td>Comment 1</td>
+                <td>Comment 2</td>
+                <td><input type="checkbox" name="myTextEditBox" value="checked"></td>
+
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-green">Comment 1</td>
+                <td class="light-green">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-curd">Comment 1</td>
+                <td class="light-curd">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-pink">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-curd">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-green">Comment 1</td>
+                <td class="light-pink">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+
+            <tr class="approved">
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td>Comment 1</td>
+                <td>Comment 2</td>
+                <td><input type="checkbox" name="myTextEditBox" value="checked"></td>
+            </tr>
+
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-pink">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-curd">Comment 1</td>
+                <td class="light-green">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-green">Comment 1</td>
+                <td class="light-curd">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-green">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-green">Comment 1</td>
+                <td class="light-curd">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            <tr>
+                <td>DRBN1946</td>
+                <td>CD2563</td>
+                <td>50%</td>
+                <td>600m</td>
+                <td>10%</td>
+                <td>27m</td>
+                <td>30%</td>
+                <td>200m</td>
+                <td>80%</td>
+                <td class="light-pink">Comment 1</td>
+                <td class="light-green">Comment 2</td>
+                <td>[Y][N]</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

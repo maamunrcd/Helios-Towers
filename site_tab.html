@@ -1,10 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"/>
+    <title>Helios-Towers</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://js.arcgis.com/4.4/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "dojo/domReady!"
+        ], function (Map, MapView) {
+            var map = new Map({
+                basemap: "streets"
+            });
+            var view = new MapView({
+                container: "viewDiv",  // Reference to the scene div created in step 5
+                map: map,  // Reference to the map object created before the scene
+                zoom: 4,  // Sets zoom level based on level of detail (LOD)
+                center: [15, 65]  // Sets center point of view using longitude,latitude
+            });
+        });
+    </script>
 </head>
 <body>
-$END$
+<div id="viewDiv"></div>
+<div class="leftSideTab">
+    <div id="tabs-container">
+        <ul class="tabs-menu">
+            <li class="current text-capitalize"><a href="#tab-1">Site Rating</a></li>
+            <li class="text-capitalize"><a href="#tab-2">Site Information</a></li>
+            <li class="text-capitalize"><a href="#tab-3">Extraction</a></li>
+        </ul>
+        <div id="tab-1" class="tab-content">
+            <div class="content-section">
+                <div class="tab-section-start">
+                    <h4 class="section-heading">Current Status</h4>
+                    <div class="action-btn">
+                        <a href="javascript:void(0)" id="edit-add-comments" class="btn shadow text-capitalize">Edit/Add
+                            Comment</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>Status</td>
+                            <td>Move</td>
+                        </tr>
+                        <tr>
+                            <td>Version#</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>External Comments</td>
+                            <td>Proposed coordinates are too close to another tower</td>
+                        </tr>
+                        <tr>
+                            <td>Internal Comments</td>
+                            <td>Airtel 100m away</td>
+                        </tr>
+                        <tr>
+                            <td>Validation of current version</td>
+                            <td>Pending</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-section-start">
+                    <h4 class="section-heading">Score info</h4>
+                    <div class="score-info">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>POS Dist</th>
+                                <th>Ratio</th>
+                                <th>Pops</th>
+                                <th>Pops</th>
+                                <th>Pops</th>
+                                <th>Pops</th>
+                                <th>Pops</th>
+                                <th>Pops</th>
+                                <th>Pops</th>
+                                <th>Pops</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                                <td>Tenant A</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="likelihood-section tab-section-start">
+                    <h4 class="section-heading">% Likelihood</h4>
+                    <div class="likelihood">
+                        <table width="100">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>OpCo</th>
+                                <th>Analyst</th>
+                                <th>HTA</th>
+
+                            </tr>
+                            </thead>
+
+                            <tr>
+                                <td>Tigo</td>
+                                <td><input type="text" value="100"></td>
+                                <td><input type="text" value="100"></td>
+                                <td><input type="text" value="100"></td>
+
+                            </tr>
+                            <tr>
+                                <td>Airtel</td>
+                                <td><input type="text" value="50"></td>
+                                <td><input type="text" value="30"></td>
+                                <td><input type="text" value=""></td>
+
+                            </tr>
+                            <tr>
+                                <td>Vodacom</td>
+                                <td><input type="text" value="30"></td>
+                                <td><input type="text" value="30"></td>
+                                <td><input type="text" value=""></td>
+
+                            </tr>
+
+                        </table>
+                        <div class="action_btn_group">
+                            <a class="action_btn text-center text-capitalize shadow" href="">See request
+                                evolution</a>
+                            <a class="action_btn text-center text-capitalize shadow" href="">save / validate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-section" style="display: none">
+                <div class="edit-status-comments tab-section-start">
+                    <h4 class="text-capitalize section-heading">edit status/comments</h4>
+                    <form action="">
+                        <table>
+                            <tr>
+                                <td>Status</td>
+                                <td>
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option value="volvo">Chose Operator</option>
+                                            <option value="saab">Saab</option>
+                                            <option value="mercedes">Mercedes</option>
+                                            <option value="audi">Audi</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Version#</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>External Comments</td>
+                                <td>proposed coordinates are too close to existing infrastructure</td>
+                            </tr>
+                            <tr>
+                                <td>Internal Comments</td>
+                                <td>Voda tower 100m away, proposed location fits more network</td>
+                            </tr>
+                            <tr>
+                                <td>Validation of current version</td>
+                                <td>Pending</td>
+                            </tr>
+                        </table>
+                        <div class="action_btn_group">
+                            <a id="return-to-rating" class="action_btn text-center text-capitalize shadow" href="">return
+                                to rating</a>
+                            <a class="action_btn text-center text-capitalize shadow" href="">save / validate</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--<div class="tab-section-start">-->
+            <!--<form action="">-->
+            <!--<div class="form-group">-->
+            <!--<select class="form-control">-->
+            <!--<option value="volvo">Chose Operator</option>-->
+            <!--<option value="saab">Saab</option>-->
+            <!--<option value="mercedes">Mercedes</option>-->
+            <!--<option value="audi">Audi</option>-->
+            <!--</select>-->
+            <!--<div class="both"></div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--<div class="action-btn">-->
+            <!--<a href="javascript:void(0)" class="btn shadow text-capitalize">Recommend tower for-->
+            <!--selected Operator</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</form>-->
+            <!--</div>-->
+
+        </div>
+
+        <div id="tab-2" class="tab-content">
+            <div class="content-section">
+                <div class="edit-status-comments tab-section-start">
+                    <h4 class="text-capitalize section-heading">Site info </h4>
+                    <table>
+                        <tr>
+                            <td class="text-capitalize">HTA ID</td>
+                            <td>DRBN1945</td>
+                        </tr>
+                        <tr>
+                            <td class="text-capitalize">Legacy ID</td>
+                            <td>CD0472</td>
+                        </tr>
+                        <tr>
+                            <td class="text-capitalize">Site Name</td>
+                            <td>Voda tower 100m away, proposed location fits more network</td>
+                        </tr>
+                        <tr>
+                            <td class="text-capitalize">project dependency</td>
+                            <td>BTS Tigo Q12017</td>
+                        </tr>
+                        <tr>
+                            <td class="text-capitalize">customer</td>
+                            <td>Tigo</td>
+                        </tr>
+                        <tr>
+                            <td class="text-capitalize">coordinates</td>
+                            <td>6.154, 39.564</td>
+                        </tr>
+                        <tr>
+                            <td class="text-capitalize">version #</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="text-capitalize">etc...</td>
+                            <td>etc...</td>
+                        </tr>
+                    </table>
+                    <div class="action_btn_group">
+                        <a class="action_btn text-center text-capitalize shadow" href="">see request evalution</a>
+                        <a class="action_btn text-center text-capitalize shadow" href="">open grid view</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-3" class="tab-content">
+            <div class="extraction_tab">
+                <div class="action_btn_group">
+                    <div class="form-group">
+                        <a class="action_btn text-center text-capitalize shadow" href="">Extract site business case scoring</a>
+                    </div>
+                    <div class="form-group">
+                        <a class="action_btn text-center text-capitalize shadow" href="">Extract project PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

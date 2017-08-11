@@ -13,6 +13,11 @@ html, body, #viewDiv {
     width: 100%;
 }
 
+.form-control {
+    min-width: 100%;
+    width: 100%;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -27,7 +32,14 @@ body {
     padding: 0;
 }
 
-.rightside {
+select {
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid;
+    padding: 4px 10px;
+}
+
+.rightside{
     position: fixed;
     right: 0;
     top: -40px;
@@ -37,7 +49,19 @@ body {
     z-index: 50;
     background: #fffeff;
 }
+.leftside{
+    position: fixed;
+    left: 0;
+    top: -17px;
+    transition: all .5s;
+    width: 33.3333%;
+    bottom: 0;
+    z-index: 54;
+    background: #fffeff;
+}
+.leftside .left-tab-list li{
 
+}
 h1 {
     font-family: 'Pacifico', cursive;
     font-weight: 400;
@@ -47,7 +71,6 @@ h1 {
 ul {
     list-style: none;
     padding: 0;
-    width: 450px;
     margin: 0;
 }
 
@@ -72,8 +95,11 @@ ul.accordion {
 ul.accordion li {
     margin-top: -2px;
 }
+.accordion.left-side-accordion{
+    overflow-y: scroll;
+}
 
-li a.toggle {
+ul.accordion li a.toggle, .accordion.left-side-accordion .toggleItem {
     width: 100%;
     display: block;
     background: #fffeff;
@@ -85,32 +111,70 @@ li a.toggle {
     transition: background .3s ease;
     border-top: 2px solid #3a383a;
     border-bottom: 2px solid #3a383a;
+    position: relative;
+}
+ul.accordion li a.toggle:after, .accordion.left-side-accordion .toggleItem:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid red;
+    right: 15px;
+    top: 8px;
+}
+ul.accordion li.active > a, .accordion.left-side-accordion li.show .toggleItem {
+    background: #95bbf4;
+    position: relative;
+}
+ul.accordion li.active > a:before, .accordion.left-side-accordion li.show .toggleItem:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid red;
+    right: 15px;
+    top: 8px;
+}
+ul.accordion li.active a.toggle:after, .accordion.left-side-accordion li.show .toggleItem:after{
+    display: none;
 }
 
-li.active > a {
+ul.accordion li > a:hover {
     background: #95bbf4;
 }
 
-li > a:hover {
-    background: #95bbf4;
-}
-
-.rightside ul.tab-list {
+.rightside ul.tab-list{
     margin: 0;
     padding: 0;
-    left: -250px;
+    left: -55%;
     position: relative;
     top: 20px;
     -ms-transform: rotate(-90deg); /* IE 9 */
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
 }
-
-.rightside ul.tab-list li {
+.rightside ul.tab-list li{
+    display: inline-block;
+}
+.leftside ul.tab-list{
+    position: relative;
+    top: 193px;
+    display: inline-block !important;
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    float: right;
+    margin: -23px -76px 0 0;
+}
+.rightside ul.tab-list li{
     display: inline-block;
 }
 
-ul li a.toggle_btn {
+ul li a.toggle_btn, ul li a.site_details_btn {
     padding: 7px 0;
     width: 90px;
     text-align: center;
@@ -120,7 +184,12 @@ ul li a.toggle_btn {
     border: 2px solid #3a383a;
 }
 
-ul li a.toggle_btn.show {
+ul li a.site_details_btn{
+    width: auto;
+    padding: 7px 12px;
+}
+
+ul li a.toggle_btn.show, a.site_details_btn.show {
     background: #95bbf4;
 }
 
@@ -172,6 +241,13 @@ ul li a.toggle_btn.show {
     padding: 5px;
     border: 1px solid #000000;
     margin: 0 2px;
+}
+
+.form-layout {
+    width: calc(50% - 20px);
+    padding: 5px;
+    margin: 0 2px;
+    float: left;
 }
 
 .form-section .form-layout .section-heading h6 {
@@ -281,6 +357,43 @@ ul li a.toggle_btn.show {
     border: 2px solid #000000;
 }
 
+/*Project details start here*/
+
+.project_details .section_heading .action_btn_group, .project_details .section_heading .action_btn_group .action_btn {
+    display: block;
+}
+
+.project_details .section_heading .action_btn_group .action_btn {
+    margin: 0 0 25px 0;
+}
+
+.project_details .section_heading .action_btn_group {
+    margin: 0;
+}
+
+.project_details .section_heading .back {
+    margin: 25px 0 0 0;
+}
+
+.project_details .section_heading {
+    margin: 0;
+}
+
+.project_details .project_details_data {
+    padding: 0 25px;
+}
+
+.project_details .project_details_data, .project_details .project_details_data table {
+    width: 100%;
+}
+
+.project_details .project_details_data .action_btn_group .action_btn {
+    display: inline-block;
+    padding: 5px 15px;
+}
+
+/*Project details End here*/
+
 .view_analysis_point .table-detials, .view_analysis_point .table-detials table {
     border: none;
 }
@@ -361,26 +474,27 @@ ul li a.toggle_btn.show {
     position: absolute;
     z-index: 20;
     top: 0;
-    width:100%;
+    width: 100%;
     height: 100%;
 }
 
 /*Validation css*/
 .menu-section {
-
     width: 100%;
+    position: fixed;
+    z-index: 555;
 }
 
 .menu-section ul {
     list-style: none;
-
+    display: inline-block;
+    border:2px solid #000000;
+    background: #fffeff;
 }
 
 .menu-section ul li {
-    float: left;
+    display:inline-block;
     padding: 5px 27px;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
     font-size: 12px;
     background: white;
 }
@@ -395,22 +509,13 @@ ul li a.toggle_btn.show {
     text-decoration: none;
     font-weight: 700;
 }
-
-.menu-section ul li:not(:first-child) {
-    padding-bottom: 9px;
-}
-
-.menu-section ul li:first-child {
-    border-left: 2px solid black;
-}
-
-.menu-section ul li:last-child {
-    border-right: 2px solid black;
+#validation .table-section{
+    margin-top:45px;
 }
 #validation .table-section table {
     width: 100%;
     display: none;
-    background:#fffeff;
+    background: #fffeff;
     border-collapse: collapse;
 }
 
@@ -422,9 +527,11 @@ ul li a.toggle_btn.show {
     font-size: 12px;
     font-weight: 700;
 }
-#validation .table-section thead th{
+
+#validation .table-section thead th {
     background: #cacaca;
 }
+
 .table-section tr:nth-child(even) {
     background-color: #eeeeee;
 }
@@ -463,6 +570,490 @@ ul li a.toggle_btn.show {
 }
 
 /*validation end*/
+
+/*
+Site tab info css
+*/
+.leftside .tabs-menu li {
+    display: inline-block;
+    background-color: rgb(213, 213, 211);
+    -ms-transform: skewX(25deg);
+    -webkit-transform: skewX(25deg);
+    transform: skewX(25deg);
+    border: 2px solid black;
+    margin: 0 8px;
+    position: relative;
+}
+.leftside .tabs-menu li:after{
+    content: "";
+    position: absolute;
+    width: 20%;
+    border-left: 2px solid black;
+    height: 100%;
+    background: rgb(213, 213, 211);
+    z-index: -1;
+    left:0;
+    -ms-transform: skewX(-25deg);
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+}
+.leftside .tabs-menu li.current {
+    background: #ffffff;
+}
+
+.leftside .tabs-menu li a {
+    padding: 9px 15px 9px 5px;
+    color: #000000;
+    text-decoration: none;
+    -ms-transform: skewX(-25deg);
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+    font-size: 12px;
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    font-weight: bold;
+}
+.leftside .tab-content .tab-section-start h4.section-heading {
+    margin: 0;
+    position: relative;
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.leftside .tab-content .tab-section-start {
+    padding: 5px 10px;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 10px;
+}
+
+.leftside .tab-content .edit-status-comments.tab-section-start form .form-control {
+    width: 100%;
+    margin: 0;
+}
+
+.leftside .tab-content .edit-status-comments.tab-section-start {
+    border-bottom: none;
+}
+
+.leftside .tab-content .tab-section-start .score-info {
+    height: 200px;
+    overflow: scroll;
+}
+
+.leftside .tab-content .tab-section-start .score-info table tr td, .leftside .tab-content .tab-section-start .score-info table tr th {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.leftside .tab-content .tab-section-start h4.section-heading:after {
+    content: "";
+    width: 8%;
+    border: 1px dotted #000000;
+    bottom: 0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+}
+
+.leftside .tab-content .likelihood-section.tab-section-start {
+    border-bottom: none;
+    margin-top: 15px;
+}
+
+.leftside .tab-content .tab-section-start tabld th, td {
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.leftside .tab-content .tab-section-start .action-btn {
+    margin: 5px auto;
+    display: inline-block;
+    width: 100%;
+}
+
+.leftside .tab-content .tab-section-start .action-btn .btn {
+    padding: 3px 15px;
+    display: inline-block;
+    float: right;
+    width: 55%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.leftside .tab-content .tab-section-start form .form-control {
+    width: 50%;
+    margin: 30px auto;
+    min-width: 50%;
+    display: table;
+    border: 2px solid #000000;
+    padding: 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.leftside .tab-content .tab-section-start form .action-btn .btn {
+    float: none;
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 15px;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+.leftside .tab-content .tab-section-start .likelihood table {
+    width: 100% !important;
+}
+
+.leftside #tab-1 {
+    display: block;
+}
+
+.leftside .tab-content .tab-section-start .score-info table, .leftside .tab-content .tab-section-start .likelihood table {
+    width: 100%;
+}
+
+.leftside .tab-content .tab-section-start .score-info table tr th, .leftside .tab-content .tab-section-start .likelihood table tr th {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.leftside .tab-content .tab-section-start .likelihood table tr td input[type="text"] {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+}
+
+.leftside .tab-content .tab-section-start .likelihood .action_btn_group .action_btn {
+    font-size: 14px;
+}
+
+.extraction_tab .action_btn_group .form-group .action_btn {
+    display: inline-block;
+    margin: 40px auto;
+    padding: 0 35px;
+    display: table;
+}
+
+.linksites-btn {
+    width: 50%;
+    margin: 0;
+    margin-left: 190px;
+}
+
+.new-project-section p {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.new-project-section .create-new-project {
+    float: left;
+    width: 45%;
+    border: 2px solid black;
+    padding: 10px;
+    height: 160px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.create-new-table td {
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+
+}
+
+.create-new-table td:first-child {
+/ / padding-right: 50 px;
+}
+
+.create-new-table input {
+    float: right;
+    width: 70px;
+    border: 2px solid;
+}
+
+.select-point-from-map {
+    padding: 10px;
+    border: 2px solid black;
+    float: right;
+    width: 45%;
+    height: 160px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.link-details p {
+    font-size: 12px;
+    clear: both;
+    font-weight: 700;
+    padding-top: 20px;
+
+}
+
+.test {
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.link-details-table {
+    padding: 10px;
+    border: 2px solid black;
+
+}
+
+.link-details-table input {
+    width: 70px;
+    border: 2px solid;
+}
+
+.link-details-table td {
+    width: 100px;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.link-details .linkdetails-btn {
+    width: 25%;
+    margin-right: 15px;
+    margin-top: -37px;
+
+}
+
+.analysis-build-impact-analysis .action_btn_group {
+    width: 60%;
+}
+
+.exportations_section p, .exportations_section p span {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.exportations_section .exportations_section_item_title {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.presentation-exportation, .scoring-exportation {
+    border-bottom: 2px solid black;
+}
+
+.presentation-exportation .exportations_section_item_content label {
+    font-size: 12px;
+    margin-right: 15px;
+    font-weight: 500;
+    width: 20%;
+    margin: 7px 0;
+    float: left;
+}
+
+.presentation-exportation .exportations_section_item_content .select-size {
+    font-weight: 500;
+    width: 80%;
+    float: left;
+}
+
+.presentation-exportation .exportations_section_item_content .action-btn {
+    margin: 35px 0;
+    text-align: center;
+    font-size: 12px;
+    display: block;
+}
+
+.exportations_section_item_content .form-layout.left, .google-earth-exportation .form-layout.left{
+    width: calc(70% - 20px);
+    margin-bottom:15px;
+}
+
+.exportations_section_item_content .form-layout.right, .google-earth-exportation .form-layout.right {
+    width: calc(30% - 20px);
+}
+
+.google-earth-exportation.exportations_section_item p{
+    font-size:12px;
+    font-weight: 500;
+}
+.google-earth-exportation.exportations_section_item .action-btn{
+    font-size:12px;
+    margin:20px 0;
+}
+
+
+.presentation-exportation .exportations_section_item_content .action-btn {
+    margin: 35px 0;
+    text-align: center;
+    font-size: 12px;
+    display: block;
+}
+
+.span-size1 {
+    display: inline-block;
+    width: 100px;
+}
+
+.scoring-exportation p span:first-child {
+    margin-bottom: 30px;
+}
+
+.google-earth-exportation p {
+    margin-top: 30px;
+}
+
+.google-earth-exportation .earth-expo-btn {
+    margin-left: 260px;
+    margin-top: -77px;
+    width: 35%;
+}
+
+.build_impact_analysis p {
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 50px;
+}
+
+.build_impact_analysis span {
+    font-weight: 700;
+}
+
+.build_impact_analysis p:nth-child(2) {
+    margin-left: 270px;
+    margin-top: 80px;
+}
+
+.build_impact_analysis .build-impact-selection-button {
+    margin-top: 50px;
+}
+
+.build_impact_analysis .action_btn_group .action_btn {
+    float: right;
+    display: inline-block;
+    padding: 5px 15px;
+}
+
+.build_impact_analysis .span-size2 {
+    width: 240px;
+    display: inline-block;
+}
+
+.custom-font-size {
+    font-size: 12px;
+    font-weight: 700
+}
+
+.selection-by-criteria .section-details p span input {
+    width: 70px;
+    border: 2px solid;
+}
+
+.selection-by-criteria .section-details p span:first-child {
+    margin-right: 20px;
+}
+
+.selection-by-criteria .selection-by-criteria-btn {
+    margin-top: -36px;
+    padding: 7px 10px;
+}
+
+.create-subgroup .create-subgroup-btn {
+    margin-top: -36px;
+    padding: 4px 10px;
+}
+
+.create-subgroup .table-detials th:not(:first-child), .create-subgroup .table-detials td:not(:first-child) {
+    width: 30%;
+}
+
+.span-size-50px {
+    width: 50px;
+    display: inline-block;
+}
+
+.action_btn_group .action-btn-extra {
+    width: 50%;
+    display: block;
+
+}
+
+/*Tools menue css*/
+.corefeature-menu {
+
+}
+
+.corefeature-menu .feature-btn {
+    display: inline-block;
+    width: 90px;
+    margin: auto;
+    padding: 30px 7px;
+}
+
+.corefeature-menu .feature-btn span {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    background: white;
+    display: grid;
+    border-radius: 10px;
+}
+
+.border-bottom {
+    border-bottom: 2px solid black;
+    margin-bottom: 50px;
+}
+
+.ring-buffer .table-detials {
+    overflow-x: inherit;
+    overflow-y: hidden;
+}
+
+.ring-buffer .table-detials th {
+    width: 24.9%;
+}
+
+.ring-buffer .table-detials td {
+    width: 26%;
+}
+
+.ring-buffer .table-scroll {
+    max-height: 420px;
+    overflow: auto;
+}
+
+.distance-details {
+    margin-top: 100px;
+}
+
+.distance-details p span {
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.block {
+    display: block;
+}
+
+.layer-list-section table td {
+    border: none !important;
+    width: 100px;
+}
+
+.layer-list-section h2 {
+    font-weight: 700;
+}
+
+.layer-list-section a span {
+    font-size: 12px;
+    font-weight: 700;
+}
 
 @media screen and (max-width: 1414px) {
     .new-project-section form .form-group label {

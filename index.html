@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"/>
+    <title>Helios-Towers</title>
     <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://js.arcgis.com/4.4/"></script>
     <script>
         require([
             "esri/Map",
             "esri/views/MapView",
             "dojo/domReady!"
-        ], function(Map, MapView){
+        ], function (Map, MapView) {
             var map = new Map({
                 basemap: "streets"
             });
@@ -25,12 +28,255 @@
 </head>
 <body>
 <div id="viewDiv"></div>
+<div class="leftside">
+    <ul class="tab-list">
+        <li><a class="site_details_btn" href="#tools">Site details</a></li>
+    </ul>
+    <ul class="accordion left-side-accordion">
+        <li class="show">
+            <a class="toggleItem" href="javascript:void(0);">Site Rating</a>
+            <div class="inner">
+                <div class="inner-block">
+                    <div class="tab-content">
+                        <div class="content-section">
+                            <div class="tab-section-start">
+                                <h4 class="section-heading">Current Status</h4>
+                                <div class="action-btn">
+                                    <a href="javascript:void(0)" id="edit-add-comments"
+                                       class="btn shadow text-capitalize">Edit/Add
+                                        Comment</a>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>Move</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Version#</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>External Comments</td>
+                                        <td>Proposed coordinates are too close to another tower</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Internal Comments</td>
+                                        <td>Airtel 100m away</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Validation of current version</td>
+                                        <td>Pending</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-section-start">
+                                <h4 class="section-heading">Score info</h4>
+                                <div class="score-info">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>POS Dist</th>
+                                            <th>Ratio</th>
+                                            <th>Pops</th>
+                                            <th>Pops</th>
+                                            <th>Pops</th>
+                                            <th>Pops</th>
+                                            <th>Pops</th>
+                                            <th>Pops</th>
+                                            <th>Pops</th>
+                                            <th>Pops</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                            <td>Tenant A</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="likelihood-section tab-section-start">
+                                <h4 class="section-heading">% Likelihood</h4>
+                                <div class="likelihood">
+                                    <table width="100">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>OpCo</th>
+                                            <th>Analyst</th>
+                                            <th>HTA</th>
+
+                                        </tr>
+                                        </thead>
+
+                                        <tr>
+                                            <td>Tigo</td>
+                                            <td><input type="text" value="100"></td>
+                                            <td><input type="text" value="100"></td>
+                                            <td><input type="text" value="100"></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Airtel</td>
+                                            <td><input type="text" value="50"></td>
+                                            <td><input type="text" value="30"></td>
+                                            <td><input type="text" value=""></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Vodacom</td>
+                                            <td><input type="text" value="30"></td>
+                                            <td><input type="text" value="30"></td>
+                                            <td><input type="text" value=""></td>
+
+                                        </tr>
+
+                                    </table>
+                                    <div class="action_btn_group">
+                                        <a class="action_btn text-center text-capitalize shadow" href="">See request
+                                            evolution</a>
+                                        <a class="action_btn text-center text-capitalize shadow" href="">save /
+                                            validate</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-section" style="display: none">
+                            <div class="edit-status-comments tab-section-start">
+                                <h4 class="text-capitalize section-heading">edit status/comments</h4>
+                                <form action="">
+                                    <table>
+                                        <tr>
+                                            <td>Status</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select class="form-control">
+                                                        <option value="volvo">Select Status</option>
+                                                        <option value="saab">Saab</option>
+                                                        <option value="mercedes">Mercedes</option>
+                                                        <option value="audi">Audi</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Version#</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>External Comments</td>
+                                            <td>proposed coordinates are too close to existing infrastructure</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Internal Comments</td>
+                                            <td>Voda tower 100m away, proposed location fits more network</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Validation of current version</td>
+                                            <td>Pending</td>
+                                        </tr>
+                                    </table>
+                                    <div class="action_btn_group">
+                                        <a id="return-to-rating" class="action_btn text-center text-capitalize shadow"
+                                           href="">return
+                                            to rating</a>
+                                        <a class="action_btn text-center text-capitalize shadow" href="">save /
+                                            validate</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a class="toggleItem" href="javascript:void(0);">Site Information</a>
+            <div class="inner">
+                <div class="inner-block">
+                    <div class="tab-content">
+                        <div class="content-section">
+                            <div class="edit-status-comments tab-section-start">
+                                <h4 class="text-capitalize section-heading">Site info </h4>
+                                <table>
+                                    <tr>
+                                        <td class="text-capitalize">HTA ID</td>
+                                        <td>DRBN1945</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-capitalize">Legacy ID</td>
+                                        <td>CD0472</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-capitalize">Site Name</td>
+                                        <td>Voda tower 100m away, proposed location fits more network</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-capitalize">project dependency</td>
+                                        <td>BTS Tigo Q12017</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-capitalize">customer</td>
+                                        <td>Tigo</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-capitalize">coordinates</td>
+                                        <td>6.154, 39.564</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-capitalize">version #</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-capitalize">etc...</td>
+                                        <td>etc...</td>
+                                    </tr>
+                                </table>
+                                <div class="action_btn_group">
+                                    <a class="action_btn text-center text-capitalize shadow" href="">see request
+                                        evalution</a>
+                                    <a class="action_btn text-center text-capitalize shadow" href="">open grid view</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a class="toggleItem" href="javascript:void(0);">Extract</a>
+            <div class="inner">
+                <div class="inner-block">
+                    <div class="tab-content">
+                        <div class="extraction_tab">
+                            <div class="action_btn_group">
+                                    <a class="action_btn text-center text-capitalize shadow" href="">Extract site business case scoring</a>
+                                    <a class="action_btn text-center text-capitalize shadow" href="">Extract project PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 <div class="rightside">
     <ul class="tab-list">
-        <li><a class="toggle_btn" href="#accordion1">Tools</a></li>
-        <li><a class="toggle_btn" href="#accordion2">Analyses</a></li>
+        <li><a class="toggle_btn" href="#analysis">Analysis</a></li>
+        <li><a class="toggle_btn" href="#tools">Tools</a></li>
     </ul>
-    <ul class="accordion" id="accordion1">
+    <ul class="accordion" id="tools">
         <li>
             <a class="toggle" href="javascript:void(0);">New Project</a>
             <div class="inner">
@@ -97,8 +343,8 @@
         <li class="active">
             <a class="toggle" href="javascript:void(0);">Existing Projects</a>
             <div class="inner">
-                <div class="inner-block">
-                    <div class="existing_projects" style="display:none">
+                <div class="inner-block" id="existing_projects">
+                    <div class="existing_projects">
                         <div class="table-detials">
                             <table>
                                 <thead>
@@ -211,16 +457,86 @@
                         </div>
                         <div class="action_btn_group">
                             <a class="action_btn text-center text-capitalize shadow" href="">Display on map</a>
-                            <a class="action_btn text-center text-capitalize shadow" href="">View analysis points</a>
+                            <a class="action_btn text-center text-capitalize shadow" id="view_analysis_point_btn"
+                               href="javascript:void(0);">View analysis points</a>
                             <a class="action_btn text-center text-capitalize shadow" href="">Edit site list</a>
-                            <a class="action_btn text-center text-capitalize shadow" href="">Project details</a>
+                            <a class="action_btn text-center text-capitalize shadow" id="project_details_btn"
+                               href="javascript:void(0);">Project details</a>
                         </div>
                     </div>
                 </div>
-                <div class="inner-block">
+                <div class="inner-block" id="project_details" style="display: none">
+                    <div class="project_details">
+                        <div class="section_heading">
+                            <div class="form-section form-layout">
+                                <a id="back-existing_projects" class="back" href="javascript:void(0);">
+                                    <img src="images/back-arrow.png" alt="">
+                                </a>
+                            </div>
+                            <div class="form-section form-layout">
+                                <div class="action_btn_group">
+                                    <a class="action_btn text-center text-capitalize shadow" href="">Edit project
+                                        details</a>
+                                    <a class="action_btn text-center text-capitalize shadow" href="">Extract project
+                                        PDF</a>
+                                </div>
+                            </div>
+                            <div class="both"></div>
+                        </div>
+                        <div class="project_details_data">
+                            <table>
+                                <tr>
+                                    <td width="50" class="text-capitalize">Project name</td>
+                                    <td width="50">BTS Tigo Q1 2017</td>
+                                </tr>
+                                <tr>
+                                    <td width="50" class="text-capitalize">Customer</td>
+                                    <td width="50">Tigo</td>
+                                </tr>
+                                <tr>
+                                    <td width="50" class="text-capitalize">Market</td>
+                                    <td width="50">DRC</td>
+                                </tr>
+                                <tr>
+                                    <td width="50" class="text-capitalize">Project analysis start date</td>
+                                    <td width="50">01/03/2017</td>
+                                </tr>
+                                <tr>
+                                    <td width="50" class="text-capitalize">Description / Comments</td>
+                                    <td width="50">Project to analyse tigo Q1 BTS requests</td>
+                                </tr>
+                                <tr>
+                                    <td width="50" class="text-capitalize">Version #</td>
+                                    <td width="50">2</td>
+                                </tr>
+                                <tr>
+                                    <td width="50" class="text-capitalize">Project Icon</td>
+                                    <td width="50">
+                                        <img src="images/project-icon.png" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50" class="text-capitalize">
+                                        <div class="action_btn_group">
+                                            <a href="" class="action_btn text-center text-capitalize shadow">Open site
+                                                list</a>
+                                        </div>
+                                    </td>
+                                    <td width="50">
+                                        <div class="action_btn_group">
+                                            <a href="" class="action_btn text-center text-capitalize shadow">Open
+                                                project database</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-block" id="view_analysis_point" style="display: none">
                     <div class="view_analysis_point">
                         <div class="section_heading">
-                            <a href="">
+                            <a id="backto-existing_projects" href="javascript:void(0);">
                                 <img src="images/back-arrow.png" alt="">
                             </a>
                             <a class="primary_btn text-center text-capitalize shadow right" href="">Edit site list</a>
@@ -391,330 +707,89 @@
                                     <td>Tigo</td>
                                     <td>Tigo</td>
                                 </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Link Sites</a>
-            <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Build Impact Analysis</a>
-            <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Exportations</a>
-            <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Layers list & Backgrounds</a>
-            <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Legend</a>
-            <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Core Features</a>
-            <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-    </ul>
-    <ul class="accordion" id="accordion2">
-        <li class="active">
-            <a class="toggle" href="javascript:void(0);">Look project Project</a>
-            <div class="inner">
-                <div class="inner-block">
-                    <div class="new-project-section">
-                        <div class="symble">
-                            <p>i</p>
-                        </div>
-                        <form action="">
-                            <div class="form-section">
-                                <div class="form-layout left left-side-form">
-                                    <div class="section-heading">
-                                        <h6 class="text-capitalize">Upload new project</h6>
-                                    </div>
-                                    <div class="action-btn">
-                                        <a href="javascript:void(0)" class="btn shadow text-capitalize">Download excel
-                                            template</a>
-                                    </div>
-                                    <div class="action-btn">
-                                        <input class="btn shadow input-btn" type="file"
-                                               value="Choose file from computer">
-                                    </div>
-                                </div>
-                                <div class="form-layout right right-side-form">
-                                    <div class="section-heading">
-                                        <h6 class="text-capitalize">create project online</h6>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="left text-left" for="project-name">Project name</label>
-                                        <input class="left inline-input" id="project-name" type="text">
-                                        <div class="both"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="left text-left" for="customer">Customer</label>
-                                        <select class="left inline-input" id="customer">
-                                            <option value="volvo">Volvo</option>
-                                            <option value="saab">Saab</option>
-                                            <option value="mercedes">Mercedes</option>
-                                            <option value="audi">Audi</option>
-                                        </select>
-                                        <div class="both"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="left text-left" for="market">Market</label>
-                                        <input class="left inline-input" id="market" type="text">
-                                        <div class="both"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="left text-left" for="project-type">Project type</label>
-                                        <input class="left inline-input" id="project-type" type="text">
-                                        <div class="both"></div>
-                                    </div>
-                                </div>
-                                <div class="both"></div>
-                            </div>
-                            <div class="btn_group">
-                                <input class="text-center shadow" type="submit">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Existing Projects</a>
-            <div class="inner">
-                <div class="inner-block">
-                    <div class="existing_projects">
-                        <div class="table-detials">
-                            <table>
-                                <thead>
                                 <tr>
-                                    <th>Name <span class="order_item"></span></th>
-                                    <th>Date <span class="order_item"></span></th>
-                                    <th># towers <span class="order_item"></span></th>
-                                    <th>Customer <span class="order_item"></span></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
+                                    <td class="icons">
+                                        <a href="javascript:void(0);">
+                                            <img class="text-center" src="images/down-arrow.png" alt="">
+                                        </a>
+                                    </td>
                                     <td>06/06/2017</td>
                                     <td>14</td>
                                     <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
                                     <td>Tigo</td>
                                 </tr>
                                 <tr>
-                                    <td>BTS Tigo Q1 2017</td>
+                                    <td class="icons">
+                                        <a href="javascript:void(0);">
+                                            <img class="text-center" src="images/down-arrow.png" alt="">
+                                        </a>
+                                    </td>
                                     <td>06/06/2017</td>
                                     <td>14</td>
                                     <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
                                     <td>Tigo</td>
                                 </tr>
                                 <tr>
-                                    <td>BTS Tigo Q1 2017</td>
+                                    <td class="icons">
+                                        <a href="javascript:void(0);">
+                                            <img class="text-center" src="images/down-arrow.png" alt="">
+                                        </a>
+                                    </td>
                                     <td>06/06/2017</td>
                                     <td>14</td>
                                     <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
                                     <td>Tigo</td>
                                 </tr>
                                 <tr>
-                                    <td>BTS Tigo Q1 2017</td>
+                                    <td class="icons">
+                                        <a href="javascript:void(0);">
+                                            <img class="text-center" src="images/down-arrow.png" alt="">
+                                        </a>
+                                    </td>
                                     <td>06/06/2017</td>
                                     <td>14</td>
                                     <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
                                     <td>Tigo</td>
                                 </tr>
                                 <tr>
-                                    <td>BTS Tigo Q1 2017</td>
+                                    <td class="icons">
+                                        <a href="javascript:void(0);">
+                                            <img class="text-center" src="images/down-arrow.png" alt="">
+                                        </a>
+                                    </td>
                                     <td>06/06/2017</td>
                                     <td>14</td>
                                     <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
                                     <td>Tigo</td>
                                 </tr>
                                 <tr>
-                                    <td>BTS Tigo Q1 2017</td>
+                                    <td class="icons">
+                                        <a href="javascript:void(0);">
+                                            <img class="text-center" src="images/down-arrow.png" alt="">
+                                        </a>
+                                    </td>
                                     <td>06/06/2017</td>
                                     <td>14</td>
                                     <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
                                     <td>Tigo</td>
                                 </tr>
                                 <tr>
-                                    <td>BTS Tigo Q1 2017</td>
+                                    <td class="icons">
+                                        <a href="javascript:void(0);">
+                                            <img class="text-center" src="images/down-arrow.png" alt="">
+                                        </a>
+                                    </td>
                                     <td>06/06/2017</td>
                                     <td>14</td>
                                     <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
                                     <td>Tigo</td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="action_btn_group">
-                            <a class="action_btn text-center text-capitalize shadow" href="">Display on map</a>
-                            <a class="action_btn text-center text-capitalize shadow" href="">View analysis points</a>
-                            <a class="action_btn text-center text-capitalize shadow" href="">Edit site list</a>
-                            <a class="action_btn text-center text-capitalize shadow" href="">Project details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="inner-block">
-                    <div class="view_analysis_point" style="display:none">
-                        <div class="section_heading">
-                            <a href="">
-                                <img src="images/back-arrow.png" alt="">
-                            </a>
-                            <a class="primary_btn text-center text-capitalize shadow right" href="">Edit site list</a>
-                        </div>
-                        <div class="table-detials">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Name <span class="order_item"></span></th>
-                                    <th>Date <span class="order_item"></span></th>
-                                    <th># towers <span class="order_item"></span></th>
-                                    <th>Customer <span class="order_item"></span></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                <tr>
-                                    <td>BTS Tigo Q1 2017</td>
-                                    <td>06/06/2017</td>
-                                    <td>14</td>
-                                    <td>Tigo</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <a class="action_btn text-center text-capitalize shadow" href="">Open project details</a>
+                            <a class="action_btn text-center text-capitalize shadow" href="">Open project database</a>
                         </div>
                     </div>
                 </div>
@@ -723,95 +798,491 @@
         <li>
             <a class="toggle" href="javascript:void(0);">Link Sites</a>
             <div class="inner">
-                <h1>Hello world</h1>
+                <p>
+                    <span class="test">Select project to work on</span>
+                    <span>
+                        <select>
+                            <option value="volvo">Project Selection</option>
+                            <option value="saab">BTS Tigo Q2 2017</option>
+                            <option value="opel">BTS Voda Q2 2017</option>
+                        </select>
+                    </span>
+                </p>
+                <div class="action-btn">
+                    <a href="javascript:void(0)" class="btn shadow text-capitalize linksites-btn">View Existing Links in
+                        Project</a>
+                </div>
+                <div class="new-project-section">
+                    <p>Select the point you want to add:</p>
+                    <div class="create-new-project">
+                        <input type="checkbox" name="myTextEditBox" value="checked">Create New Project
+                        <div class="create-new-table">
+                            <table>
+
+                                <tr>
+                                    <td>Site Type</td>
+                                    <td><input type="text" value="100"></td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>Latitude</td>
+                                    <td><input type="text" value="100"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>Longitude</td>
+                                    <td><input type="text" value="100"></td>
+
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                    <div class="select-point-from-map">
+                        <input type="checkbox" name="myTextEditBox" value="checked">Select point from Map
+                        <div class="create-new-table">
+                            <table>
+
+                                <tr>
+                                    <td>Site Type</td>
+                                    <td><input type="text" value="100"></td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>Latitude</td>
+                                    <td>-3.145</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Longitude</td>
+                                    <td>43695</td>
+
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="link-details">
+                    <p>Select the link details</p>
+                    <div class="link-details-table">
+                        <table>
+
+                            <tr>
+                                <td>Link Type</td>
+                                <td><input type="text" value="100"></td>
+                                <td></td>
+
+
+                            </tr>
+                            <tr>
+                                <td>Market</td>
+                                <td><input type="text" value="100"></td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                <td>Notes</td>
+                                <td><input type="text" value="100"></td>
+                                <td></td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="action-btn">
+                        <a href="javascript:void(0)" class="btn shadow text-capitalize linkdetails-btn">create link</a>
+                    </div>
+                </div>
             </div>
         </li>
         <li>
             <a class="toggle" href="javascript:void(0);">Build Impact Analysis</a>
             <div class="inner">
-                <h1>Hello world</h1>
+                <div class="inner-block">
+                    <div class="build_impact_analysis">
+                        <p>Select the Subgroups you want in your Impact Analysis</p>
+                        <p>Swipe Tool</p>
+
+                        <p><span class="span-size2"><input type="checkbox" name="vehicle"
+                                                           value="Bike">Subgroup Blue</span>
+                            <span> <input type="radio" name="gender" value="male"></span>
+                        </p>
+                        <p><span class="span-size2"><input type="checkbox" name="vehicle"
+                                                           value="Bike">Subgroup Yellow</span>
+                            <span> <input type="radio" name="gender" value="male"></span>
+                        </p>
+                        <p><span class="span-size2"><input type="checkbox" name="vehicle"
+                                                           value="Bike">Subgroup Green</span>
+                            <span> <input type="radio" name="gender" value="male"></span>
+                        </p>
+                        <p><span class="span-size2"><input type="checkbox" name="vehicle" value="Bike">Coverage (Current Network)</span>
+                            <span> <input type="radio" name="gender" value="male"></span>
+                        </p>
+
+                        <div class="action_btn_group build-impact-selection-button">
+                            <a class="action_btn text-center text-capitalize shadow" href="">Display Build impact for
+                                selected</a>
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </li>
         <li>
             <a class="toggle" href="javascript:void(0);">Exportations</a>
             <div class="inner">
-                <h1>Hello world</h1>
+                <div class="inner-block">
+                    <div class="exportations_section">
+                        <div class="exportations_section_item">
+                            <div class="presentation-exportation">
+                                <h5 class="exportations_section_item_title">Project Presentation Exportation</h5>
+                                <div class="exportations_section_item_content">
+                                    <form action="" method="">
+                                        <div class="form-layout left">
+                                            <label>
+                                                Project:
+                                            </label>
+                                            <select class="select-size">
+                                                <option value="">Select Project</option>
+                                                <option value=""> BTS Tigo Q1 2017</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-layout right">
+                                            <div class="action-btn">
+                                                <a href="javascript:void(0)" class="btn shadow text-capitalize">Download
+                                                    PDF</a>
+                                            </div>
+                                        </div>
+                                        <div class="both"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exportations_section_item">
+                            <div class="presentation-exportation">
+                                <h5 class="exportations_section_item_title">Site Business Case Scoring Exportation</h5>
+                                <div class="exportations_section_item_content">
+                                    <form action="" method="">
+                                        <div class="form-layout left">
+                                            <label>
+                                                Project
+                                            </label>
+                                            <select class="select-size">
+                                                <option value="">Select Project</option>
+                                                <option value=""> BTS Tigo Q1 2017</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-layout left">
+                                            <label>
+                                                Site
+                                            </label>
+                                            <select class="select-size">
+                                                <option value="">Select Project</option>
+                                                <option value=""> BTS Tigo Q1 2017</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-layout right">
+                                            <div class="action-btn">
+                                                <a href="javascript:void(0)" class="btn shadow text-capitalize">Download
+                                                    Excel</a>
+                                            </div>
+                                        </div>
+                                        <div class="both"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="google-earth-exportation exportations_section_item">
+                        <div class="form-layout left">
+                            <p>Layers file for Google Earth Exportation</p>
+                        </div>
+                        <div class="form-layout right">
+                            <div class="action-btn">
+                                <a href="javascript:void(0)" class="btn shadow text-capitalize">Download
+                                    KMZ</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </li>
         <li>
             <a class="toggle" href="javascript:void(0);">Layers list & Backgrounds</a>
             <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Legend</a>
-            <div class="inner">
-                <h1>Hello world</h1>
-            </div>
-        </li>
-        <li>
-            <a class="toggle" href="javascript:void(0);">Core Features</a>
-            <div class="inner">
-                <h1>Hello world</h1>
+                <h3>Layers list & Backgrounds</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur beatae, doloribus ea
+                    eaque excepturi facere ipsa praesentium sequi vero? Aliquam, culpa excepturi fuga fugit iusto
+                    nesciunt nihil ullam vitae! Aspernatur blanditiis consectetur doloremque ea earum explicabo, facilis
+                    illo libero maxime perspiciatis quam quasi quibusdam quis quisquam sapiente ullam velit!</p>
             </div>
         </li>
     </ul>
+    <ul class="accordion" id="analysis">
+        <li>
+            <a class="toggle" href="javascript:void(0);">Core Feature</a>
+            <div class="inner">
+                <div class="inner-block">
+                    <div class="corefeature-menu">
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Ring Buffer</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Swipe</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Charts</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Measure</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Print</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="active">
+            <a class="toggle" href="javascript:void(0);">Core Feature- Ring Buffer</a>
+            <div class="inner">
+                <div class="inner-block">
+                    <div class="corefeature-menu border-bottom">
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Ring Buffer</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Swipe</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Charts</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Measure</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Print</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
+                        <a class="feature-btn"><span class="icon"></span><span class="text">Distance</span></a>
 
+                    </div>
+                    <div class="ring-buffer">
+                        <div class="table-detials">
+                            <table>
+
+                                <tr>
+                                    <th>HTA ID <span class="order_item"></span></th>
+                                    <th>Legacy ID <span class="order_item"></span></th>
+                                    <th>Name <span class="order_item"></span></th>
+                                    <th>Selected</th>
+                                </tr>
+                            </table>
+
+                            <div class="table-scroll">
+                                <table>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DRBN1946</td>
+                                        <td>CD0472</td>
+                                        <td>Dibaya Lumbwe</td>
+                                        <td><input type="checkbox" name="" value=""></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a class="toggle" href="javascript:void(0);">Core Feature -Distance</a>
+            <div class="inner">
+                <div class="inner-block">
+                    <div class="action_btn_group">
+                        <a class="action_btn text-center text-capitalize shadow left" href="">Start Again</a>
+                        <a class="action_btn text-center text-capitalize shadow right" href="">Erase Last Point
+                            Selected</a>
+                    </div>
+                    <div class="distance-details">
+                        <p><span class="span-size2">Distance P1 to P2 </span><span>250m</span></p>
+                        <p><span class="span-size2">Distance P1 to P2 </span><span>250m</span></p>
+                        <p><span class="span-size2">Distance P1 to P2 </span><span>250m</span></p>
+                        <p><span class="span-size2">Distance P1 to P2 </span><span>250m</span></p>
+                        <p><span class="span-size2">TOTAL </span><span>1000m</span></p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a class="toggle" href="javascript:void(0);">Layer list & Backgrounds</a>
+            <div class="inner">
+                <div class="inner-block">
+                    <div class="layer-list-section">
+                        <h2>Operators</h2>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td><a><span class="block">Towers</span><span>  <input type="radio" name=""
+                                                                                       value=""></span></a></td>
+                                <td><a><span class="block">PoS</span><span>  <input type="radio" name=""
+                                                                                    value=""></span></a></td>
+                                <td><a><span class="block">CS</span><span>  <input type="radio" name="" value=""></span></a>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><a><span class="block">Tigo</span><span>  <input type="radio" name=""
+                                                                                     value=""></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                            </tr>
+                            <tr>
+                                <td><a><span class="block">Airtel</span><span>  <input type="radio" name=""
+                                                                                       value=""></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+
+                            </tr>
+                            <tr>
+                                <td><a><span class="block">Vodacom</span><span>  <input type="radio" name=""
+                                                                                        value=""></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+
+                            </tr>
+                            <tr>
+                                <td><a><span class="block">MTN</span><span>  <input type="radio" name=""
+                                                                                    value=""></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+
+                            </tr>
+                        </table>
+                        <h2>Tower Co</h2>
+                        <table>
+                            <tr>
+                                <td><a><span class="block">HTA</span><span>  <input type="radio" name=""
+                                                                                    value=""></span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span><span
+                                        class="text">From RC</span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span><span
+                                        class="text">From BI</span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span><span
+                                        class="text">From BI</span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span></a></td>
+                            </tr>
+                        </table>
+                        <h2>Backgrounds</h2>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td><a class="feature-btn"><span class="icon"></span><span
+                                        class="text">Topograpic map</span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span><span
+                                        class="text">Regions</span></a></td>
+                                <td><a class="feature-btn"><span class="icon"></span><span
+                                        class="text">Population</span></a></td>
+
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>
-<script src="jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        var accordionWidth = $(".accordion").innerWidth();
-        var windowHeight = $(window).height();
-        var listCount = $("ul#accordion1 li a.toggle").length;
-        var listHeight = $("ul#accordion1 li a.toggle").outerHeight() * listCount;
-        $(".rightside .accordion").css({"height": windowHeight});
-        $(".inner").css("height", windowHeight - listHeight + 14);
-        $("a.toggle_btn").on('click', function () {
-            var action = true;
-            var currentAttrValue = $(this).attr('href');
-            if ($(this).hasClass("show")) {
-                $('.accordion' + currentAttrValue).hide().siblings().show();
-                $(this).removeClass("show");
-                $(".rightside").css("right", -accordionWidth);
-
-            } else {
-                $("a.toggle_btn").removeClass("show");
-                $(this).addClass("show");
-                $('.accordion' + currentAttrValue).hide().siblings().show();
-                $(".rightside").css("right", 0);
-
-            }
-        });
-        $(".accordion li.active").children(".inner").css("display", "block");
-        $('a.toggle').click(function (e) {
-            e.preventDefault();
-            var $this = $(this);
-            if ($this.parent().hasClass("active")) {
-                $this.parent().removeClass("active");
-                $this.next(".inner").slideUp();
-            } else {
-                $(this).parent().parent().children("li.active").children(".inner").slideUp();
-                $(this).parent().parent().children().removeClass("active");
-                $this.parent().addClass("active");
-                $this.next(".inner").slideDown();
-            }
-        });
-        $(".icons").on('click', function () {
-            var action = true;
-            if ($(this).parent().hasClass("active")) {
-                $(this).parent().removeClass("active");
-                $(this).children().children("img").attr("src", "images/down-arrow.png");
-            } else {
-                $(".icons").parent().removeClass("active");
-                $(".icons").children().children("img").attr("src", "images/down-arrow.png");
-                $(this).parent().addClass("active");
-                $(this).children().children("img").attr("src", "images/down-arrow-active.png");
-            }
-        });
-    });
-</script>
-
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
