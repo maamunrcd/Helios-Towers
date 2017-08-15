@@ -33,10 +33,10 @@ $(document).ready(function () {
     $(".leftside .accordion").css({"height": windowHeight});
 
     //Right side accordion Height
-    $(".rightside .accordion li .inner").css("height", windowHeight - listHeight);
+    $(".rightside .accordion li .inner").css("height", windowHeight - listHeight-20);
 
     //Right side accordion Height
-    $(".leftside .accordion li .inner").css("height", windowHeight - leftlistHeights);
+    $(".leftside .accordion li .inner").css("height", windowHeight - leftlistHeights-20);
 
     //Accordion Tab inner items height
     $("#analysis .inner .inner-block").css("height", windowHeight - listHeight);
@@ -102,7 +102,7 @@ $(document).ready(function () {
             $this.parent().toggleClass("show");
             var blockHeight = $this.next(".inner").children().innerHeight();
             if ($this.next(".inner").innerHeight() < blockHeight) {
-                $this.next(".inner").css({"overflow-x": hidden, "overflow-y": scroll});
+                $this.next(".inner").css({"overflow-x": "hidden", "overflow-y": "scroll"});
             }
             $this.next(".inner").slideUp();
         } else {

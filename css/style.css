@@ -13,6 +13,17 @@ html, body, #viewDiv {
     width: 100%;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+}
+
 .form-control {
     min-width: 100%;
     width: 100%;
@@ -39,7 +50,7 @@ select {
     padding: 4px 10px;
 }
 
-.rightside{
+.rightside {
     position: fixed;
     right: 0;
     top: -40px;
@@ -49,7 +60,8 @@ select {
     z-index: 50;
     background: #fffeff;
 }
-.leftside{
+
+.leftside {
     position: fixed;
     left: 0;
     top: -17px;
@@ -59,9 +71,11 @@ select {
     z-index: 54;
     background: #fffeff;
 }
-.leftside .left-tab-list li{
+
+.leftside .left-tab-list li {
 
 }
+
 h1 {
     font-family: 'Pacifico', cursive;
     font-weight: 400;
@@ -95,7 +109,8 @@ ul.accordion {
 ul.accordion li {
     margin-top: -2px;
 }
-.accordion.left-side-accordion{
+
+.accordion.left-side-accordion {
     overflow-y: scroll;
 }
 
@@ -113,21 +128,24 @@ ul.accordion li a.toggle, .accordion.left-side-accordion .toggleItem {
     border-bottom: 2px solid #3a383a;
     position: relative;
 }
-ul.accordion li a.toggle:after, .accordion.left-side-accordion .toggleItem:after{
+
+ul.accordion li a.toggle:after, .accordion.left-side-accordion .toggleItem:after {
     content: "";
     position: absolute;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid red;
+    border-top: 10px solid #5380c5;
     right: 15px;
     top: 8px;
 }
+
 ul.accordion li.active > a, .accordion.left-side-accordion li.show .toggleItem {
     background: #95bbf4;
     position: relative;
 }
+
 ul.accordion li.active > a:before, .accordion.left-side-accordion li.show .toggleItem:before {
     content: "";
     position: absolute;
@@ -135,11 +153,12 @@ ul.accordion li.active > a:before, .accordion.left-side-accordion li.show .toggl
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid red;
+    border-bottom: 10px solid #5380c5;
     right: 15px;
     top: 8px;
 }
-ul.accordion li.active a.toggle:after, .accordion.left-side-accordion li.show .toggleItem:after{
+
+ul.accordion li.active a.toggle:after, .accordion.left-side-accordion li.show .toggleItem:after {
     display: none;
 }
 
@@ -147,7 +166,7 @@ ul.accordion li > a:hover {
     background: #95bbf4;
 }
 
-.rightside ul.tab-list{
+.rightside ul.tab-list {
     margin: 0;
     padding: 0;
     left: -55%;
@@ -157,10 +176,12 @@ ul.accordion li > a:hover {
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
 }
-.rightside ul.tab-list li{
+
+.rightside ul.tab-list li {
     display: inline-block;
 }
-.leftside ul.tab-list{
+
+.leftside ul.tab-list {
     position: relative;
     top: 193px;
     display: inline-block !important;
@@ -170,7 +191,8 @@ ul.accordion li > a:hover {
     float: right;
     margin: -23px -76px 0 0;
 }
-.rightside ul.tab-list li{
+
+.rightside ul.tab-list li {
     display: inline-block;
 }
 
@@ -184,7 +206,7 @@ ul li a.toggle_btn, ul li a.site_details_btn {
     border: 2px solid #3a383a;
 }
 
-ul li a.site_details_btn{
+ul li a.site_details_btn {
     width: auto;
     padding: 7px 12px;
 }
@@ -488,12 +510,12 @@ ul li a.toggle_btn.show, a.site_details_btn.show {
 .menu-section ul {
     list-style: none;
     display: inline-block;
-    border:2px solid #000000;
+    border: 2px solid #000000;
     background: #fffeff;
 }
 
 .menu-section ul li {
-    display:inline-block;
+    display: inline-block;
     padding: 5px 27px;
     font-size: 12px;
     background: white;
@@ -509,9 +531,11 @@ ul li a.toggle_btn.show, a.site_details_btn.show {
     text-decoration: none;
     font-weight: 700;
 }
-#validation .table-section{
-    margin-top:45px;
+
+#validation .table-section {
+    margin-top: 45px;
 }
+
 #validation .table-section table {
     width: 100%;
     display: none;
@@ -584,7 +608,8 @@ Site tab info css
     margin: 0 8px;
     position: relative;
 }
-.leftside .tabs-menu li:after{
+
+.leftside .tabs-menu li:after {
     content: "";
     position: absolute;
     width: 20%;
@@ -592,11 +617,12 @@ Site tab info css
     height: 100%;
     background: rgb(213, 213, 211);
     z-index: -1;
-    left:0;
+    left: 0;
     -ms-transform: skewX(-25deg);
     -webkit-transform: skewX(-25deg);
     transform: skewX(-25deg);
 }
+
 .leftside .tabs-menu li.current {
     background: #ffffff;
 }
@@ -614,6 +640,7 @@ Site tab info css
     position: relative;
     font-weight: bold;
 }
+
 .leftside .tab-content .tab-section-start h4.section-heading {
     margin: 0;
     position: relative;
@@ -864,24 +891,24 @@ Site tab info css
     display: block;
 }
 
-.exportations_section_item_content .form-layout.left, .google-earth-exportation .form-layout.left{
+.exportations_section_item_content .form-layout.left, .google-earth-exportation .form-layout.left {
     width: calc(70% - 20px);
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
 .exportations_section_item_content .form-layout.right, .google-earth-exportation .form-layout.right {
     width: calc(30% - 20px);
 }
 
-.google-earth-exportation.exportations_section_item p{
-    font-size:12px;
+.google-earth-exportation.exportations_section_item p {
+    font-size: 12px;
     font-weight: 500;
 }
-.google-earth-exportation.exportations_section_item .action-btn{
-    font-size:12px;
-    margin:20px 0;
-}
 
+.google-earth-exportation.exportations_section_item .action-btn {
+    font-size: 12px;
+    margin: 20px 0;
+}
 
 .presentation-exportation .exportations_section_item_content .action-btn {
     margin: 35px 0;
